@@ -1,0 +1,44 @@
+﻿@model List<CoreFirstProgram08.Models.Employee>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h2> Database Details </h2>
+
+ <a asp-action="UserList" onclick="return confirm('are you sure or Not....? ')" class="">User List</a>
+<table class="table table-responsive table-bordered table-hover">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Mobile</td>
+        <td>Salary</td>
+        <td>Dept</td>
+        <td>Company</td>
+        <td>Address</td>
+        <td>Delete</td>
+        <td>Edit</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td>@item.Mobile</td>
+            <td>@item.Salary</td>
+            <td>@item.Dept</td>
+            <td>@item.Company</td>
+            <td>@item.Address</td>
+            <td><a asp-action="Delete"asp-controller="Home"class="btn btn-succees" asp-route-id="@item.ID" onclick="return confirm('are you sure Delete or Not....? ')">Delete</a></td>
+            <td><a asp-action="Edit"asp-controller="Home" class="btn btn-primary" asp-route-id="@item.ID"onclick="return confirm('are you sure Edit or Not....? ')">Edit</a></td>
+        </tr>
+    }
+
+
+
+</table>
+<br/>
+<div>
+   
+    <a asp-action="Join"  class="btn btn-success">AddEmp</a>
+
+
+</div>

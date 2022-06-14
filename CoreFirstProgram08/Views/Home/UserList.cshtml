@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CoreFirstProgram08.Models.UserInfo>
+
+@{
+    ViewData["Title"] = "UserList";
+}
+
+<h1>UserList</h1>
+
+<table class=" table-responsive table-bordered table-hover">
+    <tr>
+        <td>ID</td>
+        <td>UserName</td>
+        <td>Password</td>
+        <td>Delete</td>
+        <td>Edit</td>
+    </tr>
+    @foreach(var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.UserName</td>
+            <td>@k.Password</td>
+           <td><a asp-action="UDelete"asp-controller="Home"class="btn btn-primary" asp-route-id="@k.ID"onclick="return confirm('are you sure Delete or Not....? ')">Delete</a></td>
+            <td><a asp-action="UEdit"asp-controller="Home" class="btn btn-succees" asp-route-id="@k.ID" onclick="return confirm('are you sure Edit or Not....? ')">Edit</a></td>
+        </tr>
+    }
+
+</table>
+ <a asp-action="Index" onclick="return confirm('are you sure or Not....? ')" class="">User List</a>
